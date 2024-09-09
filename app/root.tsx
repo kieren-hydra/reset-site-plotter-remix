@@ -5,6 +5,8 @@ import {
     Scripts,
 } from "@remix-run/react";
 
+import  "./tailwind.css";
+
 export default function App() {
     return (
         <html>
@@ -17,9 +19,8 @@ export default function App() {
             <Links />
         </head>
         <body>
-        <h1>Hello world!</h1>
+        <h1 className={"bg-slate-500"}>Hello world!</h1>
         <Outlet />
-
         <Scripts />
         </body>
         </html>
