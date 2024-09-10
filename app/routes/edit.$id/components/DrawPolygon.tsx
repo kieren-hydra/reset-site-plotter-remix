@@ -1,23 +1,22 @@
 import { Polygon } from '@react-google-maps/api';
-import { useEffect } from 'react';
+import {useOutletContext} from "@remix-run/react";
+import {AppContextType} from "../../../types";
 
 type DrawPolygonProps = {
-    polygonCoordinates: { lat: number; lng: number }[];
-  };
+    colour: string
+}
 
-const DrawPolygon = ({ polygonCoordinates } : DrawPolygonProps) => {
+const DrawPolygon = ({colour} : DrawPolygonProps) => {
 
-    useEffect(() => {
-        console.log("Coordinates array in draw polygon:", JSON.stringify(polygonCoordinates, null, 2));
-      }, [polygonCoordinates]);
+    const { polygonCoordinates } = useOutletContext<AppContextType>();
 
     return (
         <Polygon
           path={polygonCoordinates}
           options={{
-            fillColor: '#00FF00',
+            fillColor: colour,
             fillOpacity: 0.4,
-            strokeColor: '#00FF00',
+            strokeColor: colour,
             strokeOpacity: 1,
             strokeWeight: 2,
             clickable: false,
